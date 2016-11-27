@@ -1,23 +1,326 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+<!--  <link rel="stylesheet" href="main.css">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="jquery-3.1.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script>
+	
+	
+	
+	
+<!---------------------------------------------------------------------------------------->
+	
+	<style>
 
-<div class="home">
+		body {
+		background: white ;
+        border-radius: 1em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+			
+		}
+		
+		
+		#voidbutton {
+			 position: relative;
+			 bottom: -50px;
+    	     left: 10px;
+		}
+			
+			
+		h1 {
+			padding-top: 50px;
+			padding-bottom: 30px;
+			transform: translate(25%, 0%);
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			
+			
+		}
+		
+		div.box {
+			 
+			background-color: aliceblue;
+			
+			width: auto;
+/*			border-color:#BDBDBD;*/
+			padding: 1em;
+			height:auto;
+			
+			border-width: 10px;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			font-size: 23px;
+			text-align: center;
+			
+   
+		}
+		
+		div.box1 {
+			background-color: aliceblue;
+			transform: translate(78%, 0%);
+			text-align: center;
+			padding-top: 10px;
+			width:260px;
+			height:100px;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			font-size: 23px;
+			
+			margin-bottom: 20px;
+		}
+		
+		
+		
+		input, button{outline: none;}
 
-  <h1 class="page-heading">Posts</h1>
+		.inputWithButton{
+			display:inline-block;
+			overflow:hidden;
+			font-size: 15px;
+			border:1px solid gray;
+			border-radius: 3px;
+		}
+		.inputWithButton > *{
+			vertical-align:top;
+			border:0;
+			margin:0;
+			padding: 3px 10px;
+		}
+		.inputWithButton > input[type=text]{
+			width:150px;
+		}
+		.inputWithButton > button{
+			border-left:1px solid gray;
+			background:#eee;
+			cursor:pointer;
+			width:70px;
+		}
+		.inputWithButton > button::-moz-focus-inner {
+			border: 0;
+		}
+		
+			
+		
+	</style>
+	
+<!---------------------------------------------------------------------------------------->
+	
+</head> 
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+<body>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+<!---------------------------------------------------------------------------------------->
+	
+<script>
+	
+  
+  var debits = [];
+  var dockets = [];
+  var start = 0;
+  var chistory = [{}];
+ 
+		
+	
+  
+    function generateNum() {
+		
+        document.getElementById('deb').value = start;
+		var docketInput = document.getElementById('doc').value;
+		
+        addToHistory();
+		
+		function addToHistory() {
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+	  	checkAndAdd(docketInput);
+		
+		document.getElementById("testerCheck").innerHTML = "testcheck" + 					    (JSON.stringify(chistory, null, 4));
+			
+			
+	}
+		
+	function checkAndAdd(num) {
+		
+		chistory.push({debitNumber: start, docketNumber: docketInput });
+		$('deb').val = start;
+		start = start + 1;
 
+	
+	}
+		
+			
+	}
+	
+	function search() {
+		var debitSearch = (document.getElementById('searchInput').value - 0);
+
+		var result = null;    
+		
+		for (var i = 0; i < chistory.length; i++) {
+    	if (chistory[i].debitNumber == debitSearch) {
+        result = chistory[i];
+        break;
+    } else {
+		
+		document.getElementById("searchResult").innerHTML = "Error, not found.";
+	}
+}
+		
+	    var result2 = result.docketNumber;
+		
+		document.getElementById("searchResult").innerHTML = result2;
+		document.getElementById("searchText1").innerHTML = "Associated Docket Number:";			}
+	
+
+    
+	
+	function search2() {
+		var docketSearch = (document.getElementById('searchInput2').value - 0);
+
+		var result = null;   
+		var resultArray = [];
+		
+		for (var i = 0; i < chistory.length; i++) {
+    	if (chistory[i].docketNumber == docketSearch) {
+        result = chistory[i];
+        resultArray.push(result);
+			
+    } else {
+		document.getElementById("searchResult2").innerHTML = "Error, not found."
+	}
+}
+		
+		var resultPls = Object.keys(resultArray);
+		
+		if (resultPls.length > 1) {
+		document.getElementById("searchText2").innerHTML = "Associated Debit Numbers:";
+		} else {
+		document.getElementById("searchText2").innerHTML = "Associated Debit Number:"
+		}
+			
+		document.getElementById("searchResult2").innerHTML = (resultPls);
+			
+	}
+	
+//	$('input').keypress(function(event) {
+//		if (event.which == 13) {
+//			event.preventDefault();
+//			$('form').submit();
+//		}
+//	});
+	
+  function copyToClipboard(text) {
+  window.prompt("Copy to clipboard: Ctrl+C, Enter", start - 1);
+}
+	
+//	function voider() {
+//		
+//	alert("Please enter the associated docket number you would like to delete from the system");
+//    var alert = prompt("Please enter the associated docket number you would like to delete from the system");
+//
+//		
+//
+//   document.getElementById("searchResult2").innerHTML = "2";
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+	
+<!---------------------------------------------------------------------------------------->
+
+	
+<div class=container1>
+
+	
+  <h1 style="color:black">Debit Note Generator</h1>
+	
+	
+  
+	
+  <div class="box1">
+   <p>Enter Docket Number:</p> 
+	  
+	<form action ="welcome.php" method="post">
+	<span class="inputWithButton">	
+		
+ 		<input type="text" id="doc" name="theDocketInput"><button id="mysubmit" onclick="generateNum()" readonly>Submit</button>
+	</span>
+	  </form>
+	  
+	
+
+  </div>
+	
+	
+  					<p></p>
+  
+  <div class = "box">
+	  <p>Debit Note Number:</p>
+	  <p>(click to copy)</p>
+    
+  <input type="text" id="deb" class="btn" style="font-size:60px; border-color:lightblue" onclick="copyToClipboard(document.getElementById('deb').innerHTML)" readonly></input>  
+	
+<!--  <button id="voidbutton" class="btn btn-danger btn-xs" onclick="=voider()">Void</button>-->
+	  
+  </div>
+	
+					<p></p>
+	
+<div class="box">
+	<p>Search by Debit Number:</p>
+	
+	<span class="inputWithButton">
+  		<input type="text" id="searchInput"><button id="searchButton"  onclick="search()">Submit</button>
+	</span>
+	
+    <p></p>
+
+<p id="searchText1"></p><p id="searchResult"></p>
+
+ </div>
+
+				<p></p>
+
+<div class="box">
+	<p>Search by Docket Number:</p>
+	
+	<span class="inputWithButton">
+  		<input type="text" id="searchInput2"><button id="searchButton" onclick="search2()">Submit</button>
+	</span>
+
+    <p></p>
+
+<p id="searchText2"></p><p id="searchResult2"></p>
+
+ </div>
+	
+		<p></p>
+
+<div class="box">
+	<p>History: (for testing purposes)</p>
+	<p id="testerCheck"></p>
+ </div>
+	
+
+<p></p>
+	
+	
 </div>
+  
+</body>
+</html>
