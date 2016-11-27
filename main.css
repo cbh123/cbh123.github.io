@@ -1,0 +1,88 @@
+body {
+		background: white ;
+        border-radius: 1em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+			
+		}
+		
+		
+		#voidbutton {
+			 position: relative;
+			 bottom: -50px;
+    	     left: 10px;
+		}
+			
+			
+		h1 {
+			padding-top: 50px;
+			padding-bottom: 30px;
+			transform: translate(25%, 0%);
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			
+			
+		}
+		
+		div.box {
+			 
+			background-color: aliceblue;
+			
+			width: auto;
+/*			border-color:#BDBDBD;*/
+			padding: 1em;
+			height:auto;
+			
+			border-width: 10px;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			font-size: 23px;
+			text-align: center;
+			
+   
+		}
+		
+		div.box1 {
+			background-color: aliceblue;
+			transform: translate(78%, 0%);
+			text-align: center;
+			padding-top: 10px;
+			width:260px;
+			height:100px;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			font-size: 23px;
+			
+			margin-bottom: 20px;
+		}
+		
+		
+		
+		input, button{outline: none;}
+
+		.inputWithButton{
+			display:inline-block;
+			overflow:hidden;
+			font-size: 15px;
+			border:1px solid gray;
+			border-radius: 3px;
+		}
+		.inputWithButton > *{
+			vertical-align:top;
+			border:0;
+			margin:0;
+			padding: 3px 10px;
+		}
+		.inputWithButton > input[type=text]{
+			width:150px;
+		}
+		.inputWithButton > button{
+			border-left:1px solid gray;
+			background:#eee;
+			cursor:pointer;
+			width:70px;
+		}
+		.inputWithButton > button::-moz-focus-inner {
+			border: 0;
+		}
