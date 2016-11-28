@@ -258,8 +258,9 @@
 	<span class="inputWithButton">	
 		<form action="database.php" method="post">
  		<input type="text" id="doc" name="theDocketInput">
-		<button id="mysubmit" onclick="generateNum()" readonly>Sfubmit</button>
+		<button id="mysubmit" onclick="generateNum()" readonly>Submit</button>
 		</form>
+		<?php Your email address is: <?php echo $_POST["theDocketInput"]; ?>
 	</span>
 
 	
