@@ -6,114 +6,13 @@
  <link rel="stylesheet" href="main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="jquery-3.1.1.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 	</script>
-	
-	
-	
-	
-<!---------------------------------------------------------------------------------------->
-	<style>
-
-		body {
-		background: white ;
-        border-radius: 1em;
-        padding: 1em;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-			
-		}
-		
-		
-		#voidbutton {
-			 position: relative;
-			 bottom: -50px;
-    	     left: 10px;
-		}
-			
-			
-		h1 {
-			padding-top: 150px;
-			padding-bottom: 30px;
-			transform: translate(25%, 0%);
-			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-			
-			
-		}
-		
-		div.box {
-			 
-			background-color: aliceblue;
-			
-			width: auto;
-/*			border-color:#BDBDBD;*/
-			padding: 1em;
-			height:auto;
-			
-			border-width: 10px;
-			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-			font-size: 23px;
-			text-align: center;
-			
-   
-		}
-		
-		div.box1 {
-			background-color: aliceblue;
-			transform: translate(78%, 0%);
-			text-align: center;
-			padding-top: 10px;
-			width:260px;
-			height:100px;
-			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-			font-size: 23px;
-			
-			margin-bottom: 20px;
-		}
-		
-		
-		
-		input, button{outline: none;}
-
-		.inputWithButton{
-			display:inline-block;
-			overflow:hidden;
-			font-size: 15px;
-			border:1px solid gray;
-			border-radius: 3px;
-		}
-		.inputWithButton > *{
-			vertical-align:top;
-			border:0;
-			margin:0;
-			padding: 3px 10px;
-		}
-		.inputWithButton > input[type=text]{
-			width:150px;
-		}
-		.inputWithButton > button{
-			border-left:1px solid gray;
-			background:#eee;
-			cursor:pointer;
-			width:70px;
-		}
-		.inputWithButton > button::-moz-focus-inner {
-			border: 0;
-		}
-		
-			
-		
-	</style> 
-	
-	
-<!---------------------------------------------------------------------------------------->
-	
 </head> 
 
 <body>
@@ -125,7 +24,7 @@
   
   var debits = [];
   var dockets = [];
-  var start = 0;
+  var start = 281851;
   var chistory = [{}];
  
 		
@@ -181,7 +80,7 @@
 	
 
     
-	
+	//n eeds fixing!!
 	function search2() {
 		var docketSearch = (document.getElementById('searchInput2').value - 0);
 
@@ -194,17 +93,23 @@
         resultArray.push(result);
 			
     } else {
-		document.getElementById("searchResult2").innerHTML = "Error, not found."
+		document.getElementById("searchResult2").innerHTML = "Error, not found.";
 	}
 }
 		
-		var resultPls = Object.keys(resultArray);
+		var resultPls = Object.keys(resultArray.deb);
 		
 		if (resultPls.length > 1) {
 		document.getElementById("searchText2").innerHTML = "Associated Debit Numbers:";
+		} else if (resultPls.length == 1) {
+		document.getElementById("searchText2").innerHTML = "Associated Debit Number:";
+			
 		} else {
-		document.getElementById("searchText2").innerHTML = "Associated Debit Number:"
+			document.getElementById("searchText2").innerHTML = "No associated Debit Number.";
 		}
+		
+		
+		
 			
 		document.getElementById("searchResult2").innerHTML = (resultPls);
 			
@@ -243,35 +148,35 @@
 	
 <!---------------------------------------------------------------------------------------->
 
+<div class="everything">
 	
-<div class=container1>
+<div class="container1">
 
 	<p></p>
   <h1 style="color:black">Debit Note Generator</h1>
-	
-	
+</div>
   
 	
+	
   <div class="box1">
-   <p>Enter Docket Number:</p> 
+   
 	 
 	<span class="inputWithButton">	
- 		<input type="text" id="doc" name="theDocketInput"><button id="mysubmit" onclick="generateNum()" readonly>Submit</button>
-			
+		
+		<input type="text" id="doc" name="theDocketInput" placeholder="enter docket number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'enter docket number'"><button id="mysubmit" onclick="generateNum()" class="submitter" readonly>enter</button>
 	</span>
-
-	
 
   </div>
 	
 	
   					<p></p>
   
-  <div class = "box">
-	  <p>Debit Note Number:</p>
-	  <p>(click to copy)</p>
-    
-  <input type="text" id="deb" class="btn" style="font-size:60px; border-color:lightblue" onclick="copyToClipboard(document.getElementById('deb').innerHTML)" readonly></input>  
+  
+  <div class = "box2">
+
+	 <p class="DNN">Debit Note Number: </p>
+	  <p class="subtext">(click to copy)</p>
+  <input type="text" id="deb" class="btn2" style="font-size:60px; border-color:lightblue" onclick="copyToClipboard(document.getElementById('deb').innerHTML)" readonly></input>  
 	
 <!--  <button id="voidbutton" class="btn btn-danger btn-xs" onclick="=voider()">Void</button>-->
 	  
@@ -279,16 +184,12 @@
 	
 					<p></p>
 	
-<div class="box">
-	
+<div class="box3">
 	<p>Search by Debit Number:</p>
 	
-	
-
 	<span class="inputWithButton">
-  		<input type="text" id="searchInput"><button id="searchButton"  onclick="search()">Submit</button>
+  		<input type="text" id="searchInput"><button id="searchButton"  onclick="search()" class="submitter">submit</button>
 	</span>
-	
 	
     <p></p>
 
@@ -298,11 +199,11 @@
 
 				<p></p>
 
-<div class="box">
+<div class="box4">
 	<p>Search by Docket Number:</p>
 	
 	<span class="inputWithButton">
-  		<input type="text" id="searchInput2"><button id="searchButton" onclick="search2()">Submit</button>
+  		<input type="text" id="searchInput2"><button id="searchButton" onclick="search2()" class="submitter">submit</button>
 	</span>
 
     <p></p>
@@ -313,7 +214,7 @@
 	
 		<p></p>
 
-<div class="box">
+<div class="box5">
 	<p>History: (for testing purposes)</p>
 	<p id="testerCheck"></p>
  </div>
