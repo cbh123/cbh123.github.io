@@ -24,8 +24,8 @@
   
   var debits = [];
   var dockets = [];
-  var start = 281851;
-  var chistory = [{}];
+  var start = 1;
+  var chistory = [];
  
 		
 	
@@ -33,30 +33,22 @@
     function generateNum() {
 		
         document.getElementById('deb').value = start;
+		
+		// saves user input as docketInput
 		var docketInput = document.getElementById('doc').value;
 		
-        addToHistory();
+		// pushes to chistory
+	  	chistory.push({debitNumber: start, docketNumber: docketInput });
+		start = start + 1;
 		
-		function addToHistory() {
-
-	  	checkAndAdd(docketInput);
-		
+		// adds to history
 		document.getElementById("testerCheck").innerHTML = "testcheck" + 					    (JSON.stringify(chistory, null, 4));
 			
 			
 	}
-		
-	function checkAndAdd(num) {
-		
-		chistory.push({debitNumber: start, docketNumber: docketInput });
-		$('deb').val = start;
-		start = start + 1;
-
 	
-	}
-		
-			
-	}
+	
+	
 	
 	function search() {
 		var debitSearch = (document.getElementById('searchInput').value - 0);
@@ -84,12 +76,12 @@
 	function search2() {
 		var docketSearch = (document.getElementById('searchInput2').value - 0);
 
-		var result = null;   
+		var result = -1;   
 		var resultArray = [];
 		
 		for (var i = 0; i < chistory.length; i++) {
     	if (chistory[i].docketNumber == docketSearch) {
-        result = chistory[i];
+        result = chistory[i].debitNumber;
         resultArray.push(result);
 			
     } else {
@@ -97,7 +89,7 @@
 	}
 }
 		
-		var resultPls = Object.keys(resultArray.deb);
+		var resultPls = resultArray;
 		
 		if (resultPls.length > 1) {
 		document.getElementById("searchText2").innerHTML = "Associated Debit Numbers:";
@@ -111,7 +103,7 @@
 		
 		
 			
-		document.getElementById("searchResult2").innerHTML = (resultPls);
+		document.getElementById("searchResult2").innerHTML = resultPls;
 			
 	}
 	
@@ -123,7 +115,7 @@
 //	});
 	
   function copyToClipboard(text) {
-  window.prompt("Copy to clipboard: Ctrl+C, Enter", start - 1);
+  window.prompt("Copy to clipboard: Ctrl+C", start - 1);
 }
 	
 //	function voider() {
