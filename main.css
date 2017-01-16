@@ -36,8 +36,13 @@ body {
 	}
 
 	.submitter:hover {
-		background-color: #72bb53;
-		border-color: #72bb53;
+		background-color: #b300b3;
+		border-color: #b300b3;
+	}
+
+	.submitter2:hover {
+		background-color: grey;
+		border-color: grey;
 	}
 		
 		
@@ -51,7 +56,7 @@ body {
 		div.box2 {
 			height:100px;
 			color: #f7f6f6;
-			background: #fec63d;
+			background: orange;
 			width: 500px;
 			text-align: center;
 			margin-left: 255px;
@@ -138,7 +143,7 @@ box-shadow: 9px 9px 9px -5px rgba(204,204,204,1);
 		
 		
 		
-		input, button{outline: none;}
+/*		input, button{outline: none;}*/
 
 		.inputWithButton{
 			display:inline-block;
@@ -167,7 +172,7 @@ box-shadow: 9px 9px 9px -5px rgba(204,204,204,1);
 		}
 		.inputWithButton > input[type=text]{
 			width:`00px;
-			background: #3d8af7;
+			background: #3366ff;
 			border-bottom-left-radius: .2em;
 			border-top-left-radius: .2em;
 			border:none;
@@ -178,7 +183,7 @@ box-shadow: 9px 9px 9px -5px rgba(204,204,204,1);
 		}
 		.inputWithButton > button{
 			border-left:none;
-			background:#92d36e;
+			background:#e600e6;
 			border-top-right-radius: .2em;
 			border-bottom-right-radius: .2em;
 			
@@ -192,5 +197,65 @@ box-shadow: 9px 9px 9px -5px rgba(204,204,204,1);
 			border: 0;
 			
 		}
+
+
+.inputWithButton2{
+			display:inline-block;
+			overflow:hidden;
+			width:1000px;
+			height:
+			font-size: 24px;
+			color: #black;
+			
+			
+			
+		
+		}
+
+		.inputWithButton2 > *{
+			vertical-align:top;
+			border:0;
+			margin-right: -10px;
+			margin-bottom: 10px;
+			padding: 30px;
+			padding-bottom: 30px;
+			-webkit-box-shadow: 9px 9px 9px -5px rgba(204,204,204,1);
+-moz-box-shadow: 9px 9px 9px -5px rgba(204,204,204,1);
+box-shadow: 9px 9px 9px -5px rgba(204,204,204,1);
+			
+			
+		}
+		.inputWithButton2 > input[type=text]{
+			width:`01px;
+			border:1;
+			background:lightgray;
+			border-bottom-left-radius: .2em;
+			border-top-left-radius: .2em;
+			border:black;
+			
+			
+			
+			
+			
+		}
+		.inputWithButton2 > button{
+			border-left:none;
+			background:gr;
+			border-top-right-radius: .2em;
+			border-bottom-right-radius: .2em;
+			
+			cursor:pointer;
+		
+			
+		}
+
+
+		.inputWithButton2 > button::-moz-focus-inner {
+			border: 0;
+			
+		}
+
+		
+			
 
 		
