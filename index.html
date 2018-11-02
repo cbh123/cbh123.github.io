@@ -1,225 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Debit Note Generator</title>
-  <meta charset="utf-8">
- <link rel="stylesheet" href="main.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script src="jquery-3.1.1.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-	</script>
-</head> 
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Charlie Holtz</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-<body>
+		<!-- Wrapper -->
+		<section>
+			<div id="wrapper" class="divided">
 
-<!---------------------------------------------------------------------------------------->
-	
-<script>
-	
-  
-  var debits = [];
-  var dockets = [];
-  var start = 1;
-  var chistory = [];
- 
-		
-	function checkSubmit(e) {
-   if(e && e.keyCode == 13) {
-      generateNum();
-   }
-}
-  
-    function generateNum() {
-		
-        document.getElementById('deb').value = start;
-		
-		// saves user input as docketInput
-		var docketInput = document.getElementById('doc').value;
-		
-		// pushes to chistory
-	  	chistory.push({debitNumber: start, docketNumber: docketInput });
-		start = start + 1;
-		
-		// adds to history
-		document.getElementById("testerCheck").innerHTML = "testcheck" + 					    (JSON.stringify(chistory, null, 4));
-			
-			
-	}
-	
-	
-	
-	
-	function search() {
-		var debitSearch = (document.getElementById('searchInput').value - 0);
 
-		var result = null;    
-		
-		for (var i = 0; i < chistory.length; i++) {
-    	if (chistory[i].debitNumber == debitSearch) {
-        result = chistory[i];
-        break;
-    } else {
-		
-		document.getElementById("searchResult").innerHTML = "Error, not found.";
-	}
-}
-		
-	    var result2 = result.docketNumber;
-		
-		document.getElementById("searchResult").innerHTML = result2;
-		document.getElementById("searchText1").innerHTML = "Associated Docket Number:";			}
-	
 
-    
-	//n eeds fixing!!
-	function search2() {
-		var docketSearch = (document.getElementById('searchInput2').value - 0);
 
-		var result = -1;   
-		var resultArray = [];
-		
-		for (var i = 0; i < chistory.length; i++) {
-    	if (chistory[i].docketNumber == docketSearch) {
-        result = chistory[i].debitNumber;
-        resultArray.push(result);
-			
-    } else {
-		document.getElementById("searchResult2").innerHTML = "Error, not found.";
-	}
-}
-		
-		var resultPls = resultArray;
-		
-		if (resultPls.length > 1) {
-		document.getElementById("searchText2").innerHTML = "Associated Debit Numbers:";
-		} else if (resultPls.length == 1) {
-		document.getElementById("searchText2").innerHTML = "Associated Debit Number:";
-			
-		} else {
-			document.getElementById("searchText2").innerHTML = "No associated Debit Number.";
-		}
-		
-		
-		
-			
-		document.getElementById("searchResult2").innerHTML = resultPls;
-			
-	}
-	
-//	$('input').keypress(function(event) {
-//		if (event.which == 13) {
-//			event.preventDefault();
-//			$('form').submit();
-//		}
-//	});
-	
-  function copyToClipboard(text) {
-  window.prompt("Copy to clipboard: Ctrl+C", start - 1);
-}
-	
-//	function voider() {
-//		
-//	alert("Please enter the associated docket number you would like to delete from the system");
-//    var alert = prompt("Please enter the associated docket number you would like to delete from the system");
-//
-//		
-//
-//   document.getElementById("searchResult2").innerHTML = "2";
-//	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-</script>
-	
-<!---------------------------------------------------------------------------------------->
 
-<div class="everything">
-	
-<div class="container1">
 
-	<p></p>
-  <h1 style="color:black">Debit Note Generator</h1>
-</div>
-  
-	
-	
-  <div class="box1">
-   
-	 
-	<span class="inputWithButton">	
-		
-		<input type="text" id="doc" onKeyPress="return checkSubmit(event)" name="theDocketInput" placeholder="enter docket number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'enter docket number'"><button id="mysubmit" onclick="generateNum()" class="submitter" readonly>enter</button>
-	</span>
+				<!-- One -->
+					<section class="banner style3 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<h1>Charlie Holtz</h1>
+							<p class="major">
+                                Hi! I’m a recent graduate of Brown University, where
+                                I studied the computational side of cognitive neuroscience.
+                                <br>
+                                <br>
+                                I’m also a research assistant and web developer for
+                                the Serre Lab, where I study the circuits behind
+                                certain optical illusions.
+							<ul class="actions stacked">
+								<li><a href="#first" class="button big wide smooth-scroll-middle">More About Me</a></li>
+								<li><a href="#first" class="button icon fa-download">Resume</a></li>
+							</ul>
+						</div>
 
-  </div>
-	
-	
-  					<p></p>
-  
-  
-  <div class = "box2">
+						<div class="image">
+							<img src="images/headshot.png" alt="" />
+						</div>
 
-	 <p class="DNN">Debit Note Number: </p>
-	  <p class="subtext">(click to copy)</p>
-  <input type="text" id="deb" class="btn2" style="font-size:60px; border-color:lightblue" onclick="copyToClipboard(document.getElementById('deb').innerHTML)" readonly></input>  
-	
-<!--  <button id="voidbutton" class="btn btn-danger btn-xs" onclick="=voider()">Void</button>-->
-	  
-  </div>
-	
-					<p></p>
-	
-<div class="box3">
-	<p>Search by Debit Number:</p>
-	
-	<span class="inputWithButton2">
-  		<input type="text" id="searchInput"><button id="searchButton"  onclick="search()" class="submitter2">submit</button>
-	</span>
-	
-    <p></p>
+					</section>
 
-<p id="searchText1"></p><p id="searchResult"></p>
+				<!-- Two -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+						<div class="content">
+							<h2>Research</h2>
+							<p>For my honors thesis, I worked
+                                on creating a new model for understanding the Hermann
+                                Grid Illusion, pictured right. The new
+                                model increased accuracy from 75%
+                                to 80%. The model I'm working on is based on the concept of "surround cell" interactions, described in this paper
+                                <a href="http://psycnet.apa.org/doiLanding?doi=10.1037%2Frev0000109"> by Linsley, Mely, and Serre (2018).</a>
+                                I am currently working towards publishing this research.</p>
+							<ul class="actions stacked">
+								<li> <a href="#" class="button icon fa-download">Download</a></li>
+							</ul>
 
- </div>
 
-				<p></p>
+						</div>
+						<div class="image">
+							<img src="images/hermann_grid.png" alt="" />
+						</div>
+					</section>
 
-<div class="box4">
-	<p>Search by Docket Number:</p>
-	
-	<span class="inputWithButton2">
-  		<input type="text" id="searchInput2"><button id="searchButton" onclick="search2()" class="submitter2">submit</button>
-	</span>
+				<!-- Three -->
+					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Software</h2>
+							<p>At Brown, I developed an interest
+                                in CS and followed the computational
+                                track of cognitive neuroscience.
+                                For my software engineering final project,
+                                I helped build a real-time map of the
+                                world’s breaking news. Outside of academics,
+                                I helped develop one of Brown’s departmental
+                                <a href="https://www.brown.edu/academics/cognitive-linguistic-psychological-sciences/home">websites</a>, built a <a href="https://github.com/cbh123/debitnote_generator">web-app for a law firm</a>, and
+                                more.</p>
+							<ul class="actions stacked">
+								<li><a href="https://github.com/cbh123" class="button">Github</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="images/coding1.png" alt="" />
+						</div>
+					</section>
 
-    <p></p>
 
-<p id="searchText2"></p><p id="searchResult2"></p>
+				<!-- Four -->
+						<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Architecture &amp; Design</h2>
+							<p>I spent the summer of 2017 studying
+                                architecture and design at the
+                                 <a href="http://designdiscovery.gsd.harvard.edu/"> Harvard
+                                School of Design’s Design Discovery Program.</a>
+                                Using the skills and experience from that class,
+                                I developed a curriculum and taught an
+                                Architecture &amp; Design class at the <a href="https://www.wheelerschool.org/page">The Wheeler School</a> in Providence, RI.</p>
+							<ul class="actions stacked">
+								<li><a href="https://github.com/cbh123" class="button">Portfolio</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="images/gsd2.jpg" alt="" />
+						</div>
+					</section>
 
- </div>
-	
-		<p></p>
+				<!-- Five -->
+				<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div class="content">
+					<h2>Other Interests</h2>
+					<p>I played <a href="https://ultiworld.com/2018/05/23/breaking-brownian-motion/">Ultimate Frisbee</a> at Brown, where we finished tied-5th
+						in the nation in 2018, and where I was voted as a 2nd team all-region player (NE) by USA Ultimate.
 
-<div class="box5">
-	<p>History: (for testing purposes)</p>
-	<p id="testerCheck"></p>
- </div>
-	
+						I also am a college essay consultant
+						for <a href="https://www.crimsoneducation.org/us">Crimson Education</a>, where I help
+						international students with the college
+						application process.
+					</p>
 
-<p></p>
-	
-	
-</div>
-  
-</body>
+				</div>
+				<div class="image">
+					<img src="images/frisbee.png" alt="" />
+				</div>
+			</section>
+
+				<!-- Six -->
+
+
+				<!-- Seven -->
+
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<h2>Find Out More!</h2>
+							<ul class="icons">
+								<li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                <li><a href="#" class="icon style2 fa-github"><span class="label">Github</span></a></li>
+								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; Charlie Holtz. Design inspired by <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
